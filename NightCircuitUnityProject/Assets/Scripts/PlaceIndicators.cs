@@ -62,7 +62,7 @@ public class PlaceIndicators : Singleton<PlaceIndicators>
                     MessageManager.I.Notify("You took the indicators back.");
                     ResetIndicators();
                     IndicatorsHandler.I.FlushIndicators();
-                    transform.localPosition = lastCheckpoint.localPosition;
+                    // transform.localPosition = lastCheckpoint.localPosition;
                     break;
             }
         }

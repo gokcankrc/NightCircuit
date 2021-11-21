@@ -26,6 +26,8 @@ public class BatteryPortScript : MonoBehaviour
     [SerializeField] private Door connectedDoor;
     [SerializeField] private BatteryPortScript connectedDoorPort;
     [SerializeField] private BatteryPortScript connectedDoorPort2;
+    
+    [SerializeField] private BatteryPortScript lvl1BatterySwitch;
 
     [SerializeField] private BatterySoundEffects batterySoundEffects;
 
@@ -131,7 +133,8 @@ public class BatteryPortScript : MonoBehaviour
         if (connectedLightsArray == 1 && BatteriesCount == maxBatteryAmount)
         {
             // level = 2
-            this.defaultBatteries = 1;
+            defaultBatteries = 1;
+            lvl1BatterySwitch.defaultBatteries = 0;
             PlaceIndicators.I.lastCheckpoint = PlaceIndicators.I.level2Checkpoint;
             MessageManager.I.level = 2;
         }
