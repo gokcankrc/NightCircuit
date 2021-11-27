@@ -2320,7 +2320,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 963194227}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -6270,7 +6270,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 963194227}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -11207,16 +11207,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 83989158974288980, guid: e6dbfd7f6b2e7474ea0fd1218806f8d5, type: 3}
   m_PrefabInstance: {fileID: 1043797818}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &963194227 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 5125931402366956751, guid: 4ef218b14246aca49a240998803db6f3, type: 3}
-  m_PrefabInstance: {fileID: 5125931401416481212}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &963194228 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5125931402366956744, guid: 4ef218b14246aca49a240998803db6f3, type: 3}
-  m_PrefabInstance: {fileID: 5125931401416481212}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &964310705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12351,7 +12341,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 963194227}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -13316,6 +13306,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1481621838804138101, guid: 2f359884ccdce4442a3f3dd0b01aeef9, type: 3}
   m_PrefabInstance: {fileID: 978025697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1102817735 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 715246084068193500, guid: 4ef218b14246aca49a240998803db6f3, type: 3}
+  m_PrefabInstance: {fileID: 5125931401416481212}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1103411071
 PrefabInstance:
@@ -18084,7 +18079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1415872666}
-  cameraTransform: {fileID: 963194228}
+  cameraTransform: {fileID: 1102817735}
   moveSpeed: 5.5
   sensitivity: 257
   initialDelay: 0.1
@@ -18163,7 +18158,7 @@ Transform:
   m_LocalPosition: {x: -2.6372738, y: -0.46806103, z: 4.037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 963194228}
+  - {fileID: 1102817735}
   - {fileID: 850676136}
   m_Father: {fileID: 1367416515}
   m_RootOrder: 0
@@ -18182,7 +18177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicatorPrefab: {fileID: 3978923563917674065, guid: 89360b650f351524d8908d4badee5913, type: 3}
   indicatorsFolder: {fileID: 1411574713}
-  cameraTransform: {fileID: 963194228}
+  cameraTransform: {fileID: 1102817735}
   level1Checkpoint: {fileID: 389206065}
   level2Checkpoint: {fileID: 789959289}
   maxIndicators: 3
@@ -18201,7 +18196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104898d5355881f4c9e26355a24fe3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 963194228}
+  cameraTransform: {fileID: 1102817735}
   batteryMaxDist: 3
   currentBatteries: 0
 --- !u!1 &1417436668
@@ -19498,7 +19493,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 963194227}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -28209,6 +28204,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1415872671}
     m_Modifications:
+    - target: {fileID: 715246084068193501, guid: 4ef218b14246aca49a240998803db6f3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5125931402366956744, guid: 4ef218b14246aca49a240998803db6f3, type: 3}
       propertyPath: m_RootOrder
       value: 0
