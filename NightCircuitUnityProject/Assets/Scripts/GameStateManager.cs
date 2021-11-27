@@ -1,26 +1,65 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Serialization;
+using UnityEngine.SocialPlatforms;
 
-public class GameStateManager : MonoBehaviour
+public class GameStateManager : Singleton<GameStateManager>
 {
+    public string state = "LightsOn";  // Either "LightsOn" or "LightsOff"
+    public int level = 1;
+    
+    [Range(0, 100)] public int audioLevel = 50;  // out of hundred
+    public float AudioLevelNormalized => audioLevel * 2f / 100f;  // defaults are 50, and we should allow players to go higher from 50.
+    [SerializeField] private int audioLevelIncement = 5;
 
-    public static string state = "LightsOn";  // Either "LightsOn" or "LightsOff"
-    public static int level = 1;  // Either "LightsOn" or "LightsOff"
-    public a level2;  // Either "LightsOn" or "LightsOff"
+    [SerializeField] public KeyCode musicUpKey;
+    [SerializeField] public KeyCode musicDownKey;
+
+
+    public delegate void AudioLevelChange(float audioLevelNormalized);
+    public static event AudioLevelChange ONAudioLevelChange ;
+
+
+    public void VolumeChange(int change)
+    {
+        audioLevel = Mathf.Clamp(audioLevel + change, 0, 100);
+        ONAudioLevelChange?.Invoke(AudioLevelNormalized);
+        Debug.Log(AudioLevelNormalized);
+    }
+
     
     
-    void Start()
+    void Awake()
     {
         state = "LightsOn";
     }
 
-    void MightHaveTurnedLightsOff()
+    private void Start()
     {
-        // what level are we at?
-        
-            
+        ONAudioLevelChange?.Invoke(AudioLevelNormalized);
+
     }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(musicDownKey)) VolumeChange(-audioLevelIncement);
+        if (Input.GetKeyDown(musicUpKey)) VolumeChange(audioLevelIncement);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public a level2;
+    public a level32;
 }
 
 

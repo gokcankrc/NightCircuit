@@ -123,7 +123,6 @@ MonoBehaviour:
   messageOffset: {x: 0, y: -20}
   messageBox: {x: 600, y: 50}
   InitialTexts: []
-  level: 1
 --- !u!1 &715246084068193497
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,8 +402,9 @@ GameObject:
   m_Component:
   - component: {fileID: 715246085529035049}
   - component: {fileID: 715246085529035050}
+  - component: {fileID: 1387163183}
   m_Layer: 0
-  m_Name: Audio
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -436,7 +436,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 69c334a4a1f303942b5eb23aa9df8072, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -520,6 +520,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1387163183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715246085529035048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febac0338f30d824f9c510583259a020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &715246084902870988
 PrefabInstance:
   m_ObjectHideFlags: 0

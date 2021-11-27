@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 250216095176266980}
   - component: {fileID: 8397431885932493060}
+  - component: {fileID: 4663155873851151738}
   m_Layer: 0
   m_Name: BatteryInsidePort
   m_TagString: Untagged
@@ -137,7 +138,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0f3214a9ef4d9fe4ab5e309799fb9400, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -221,6 +222,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4663155873851151738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241850533626909151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febac0338f30d824f9c510583259a020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1001 &5562663993133928228
 PrefabInstance:
   m_ObjectHideFlags: 0

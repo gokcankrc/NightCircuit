@@ -7,7 +7,9 @@ public class BatteryPortScript : MonoBehaviour
     [SerializeField] private int defaultBatteries;
     [NonSerialized] public int BatteriesCount;
     [SerializeField] public int connectedLightsArray = -1;
-    
+
+    public bool IsFull => BatteriesCount == maxBatteryAmount;
+
     [SerializeField] private GameObject visualBattery;
     
     [SerializeField] private Material visualBatteryOnEmission;
@@ -98,59 +100,45 @@ public class BatteryPortScript : MonoBehaviour
         }
     }
 
+ 
     private void UpdateLightContainers()
     {
         // flick dir is -1 if closing all the lights, and 1 if opening all. 0 for not (activeness), but don't use for debug purposes.
-        if (connectedLightsArray == -1) return;
-        if (connectedLightsArray == -2)
-        
+        switch (connectedLightsArray)
         {
-            // special case: door
-            if (connectedDoorPort.BatteriesCount == connectedDoorPort.maxBatteryAmount && BatteriesCount == maxBatteryAmount)
-            {
-                connectedDoor.OpenDoor(1);
-            }
-            else
-            {
-                connectedDoor.OpenDoor(-1);
-            }
-            return;
-        }
+            case -1:
+                return;
+            case -2:
+                // special case: door
+                if (connectedDoorPort.IsFull && IsFull) connectedDoor.OpenDoor(1);
+                else connectedDoor.OpenDoor(-1);
+                return;
+            case -3:
+                if (IsFull) connectedDoor.OpenDoor(1);
+                else connectedDoor.OpenDoor(-1);
+                return;
+            case 0:
+                GameStateManager.I.state = IsFull ? "LightsOn" : "LightsOff";
+                break;
+            case 1:
+                if (IsFull && GameStateManager.I.level == 1)
+                {
+                    // level = 2
+                    defaultBatteries = 1;
+                    lvl1BatterySwitch.defaultBatteries = 0;
+                    PlaceIndicators.I.lastCheckpoint = PlaceIndicators.I.level2Checkpoint;
+                    GameStateManager.I.level = 2;
+                    MessageManager.I.Notify("Checkpoint has reached");
+                }
+                
+                GameStateManager.I.state = IsFull ? "LightsOn" : "LightsOff";
+                break;
 
-        if (connectedLightsArray == -3)
-        {
-            if (BatteriesCount == maxBatteryAmount)
-            {
-                connectedDoor.OpenDoor(1);
-            }
-            else
-            {
-                connectedDoor.OpenDoor(-1);
-            }
-            return;
-        }
-
-        if (connectedLightsArray == 1 && BatteriesCount == maxBatteryAmount)
-        {
-            // level = 2
-            defaultBatteries = 1;
-            lvl1BatterySwitch.defaultBatteries = 0;
-            PlaceIndicators.I.lastCheckpoint = PlaceIndicators.I.level2Checkpoint;
-            MessageManager.I.level = 2;
-        }
-
-        if (connectedLightsArray == -4)
-        {
-            // special case: door
-            if (connectedDoorPort.BatteriesCount == connectedDoorPort.maxBatteryAmount && BatteriesCount == maxBatteryAmount && connectedDoorPort2.BatteriesCount == connectedDoorPort2.maxBatteryAmount)
-            {
-                connectedDoor.OpenDoor(1);
-            }
-            else
-            {
-                connectedDoor.OpenDoor(-1);
-            }
-            return;
+            case -4:
+                // special case: door
+                if (connectedDoorPort.IsFull && connectedDoorPort2.IsFull && IsFull) connectedDoor.OpenDoor(1);
+                else connectedDoor.OpenDoor(-1);
+                return;
         }
 
         var flickDir = BatteriesCount;
@@ -159,6 +147,7 @@ public class BatteryPortScript : MonoBehaviour
 
         LightSwitch.I.FlickThaSwitch(connectedLightsArray, flickDir);
     }
+
 
     public int RemoveAllBattery()
     {

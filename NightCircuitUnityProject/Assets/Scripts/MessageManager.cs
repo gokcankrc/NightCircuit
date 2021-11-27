@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class MessageManager : Singleton<MessageManager>
 {
@@ -15,7 +16,7 @@ public class MessageManager : Singleton<MessageManager>
     [SerializeField] private Vector2 messageBox;
     [SerializeField] private List<string> InitialTexts = new List<string>();
 
-    public int level = 1;
+    private static int Level => GameStateManager.I.level;
 
     private void Start()
     {
@@ -36,6 +37,8 @@ public class MessageManager : Singleton<MessageManager>
     {
         var currentMessage = Instantiate(messagePrefab, notificationMessagesTransform);
         currentMessage.GetComponent<TextMeshProUGUI>().text = messageString;
+        Debug.Log("textmesh attempts");
+        var lineCount = currentMessage.GetComponent<TextMeshProUGUI>().GetTextInfo(messageString).lineCount;
         
         // displace for them to not stack
         RectTransform messsageRect = currentMessage.GetComponent<RectTransform>();
@@ -45,7 +48,7 @@ public class MessageManager : Singleton<MessageManager>
         
         for (int j = 0; j < notificationMessagesTransform.childCount; j++)
         {
-            notificationMessagesTransform.GetChild(j).GetComponent<RectTransform>().anchoredPosition += messageOffset;
+            notificationMessagesTransform.GetChild(j).GetComponent<RectTransform>().anchoredPosition += messageOffset * lineCount /2;
         }
     }
 
@@ -53,7 +56,7 @@ public class MessageManager : Singleton<MessageManager>
     {
         InitialTexts[1] = PlaceBatteries.I.currentBatteries.ToString();
         InitialTexts[3] = PlaceIndicators.I.currentIndicators.ToString();
-        InitialTexts[5] = level.ToString();
+        InitialTexts[5] = Level.ToString();
         string combinedText = "";
         foreach (var InitialTextMember in InitialTexts)
         {

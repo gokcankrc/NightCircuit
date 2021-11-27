@@ -156,6 +156,7 @@ MonoBehaviour:
   connectedDoor: {fileID: 0}
   connectedDoorPort: {fileID: 0}
   connectedDoorPort2: {fileID: 0}
+  lvl1BatterySwitch: {fileID: 0}
   batterySoundEffects: {fileID: 836018096648543196}
 --- !u!114 &836018096648543196
 MonoBehaviour:
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSound: {fileID: 5239845289316350277, guid: e0103fb9597e2e94bbc03e4aa8741311, type: 3}
   offSound: {fileID: 7962273747916252263, guid: 465bc3065ad90ae4bb4844d8b41c2778, type: 3}
+  soundsOrNot: 1
 --- !u!1 &5468721270075438612
 GameObject:
   m_ObjectHideFlags: 0
