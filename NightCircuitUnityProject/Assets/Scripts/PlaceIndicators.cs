@@ -52,8 +52,7 @@ public class PlaceIndicators : Singleton<PlaceIndicators>
         
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log(GameStateManager.State);
-            switch (GameStateManager.State)
+            switch (GameStateManager.state)
             {
                 case "LightsOff":
                     MessageManager.I.Notify("You cannot take the indicators when the light is off. Press \"R\" to reload from the last checkpoint.");

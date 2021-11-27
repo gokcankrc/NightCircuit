@@ -31,8 +31,7 @@ public class PlaceBatteries : Singleton<PlaceBatteries>
         if (Input.GetKeyDown(KeyCode.R))
         {
             
-            Debug.Log(GameStateManager.State);
-            switch (GameStateManager.State)
+            switch (GameStateManager.state)
             {
                 case "LightsOn":
                     MessageManager.I.Notify("You put all the batteries back in their place");
