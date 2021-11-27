@@ -28250,6 +28250,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1415872671}
     m_Modifications:
+    - target: {fileID: 715246083970961767, guid: 4ef218b14246aca49a240998803db6f3, type: 3}
+      propertyPath: messageOffset.y
+      value: -24
+      objectReference: {fileID: 0}
     - target: {fileID: 715246084068193497, guid: 4ef218b14246aca49a240998803db6f3, type: 3}
       propertyPath: m_Name
       value: Kameraman

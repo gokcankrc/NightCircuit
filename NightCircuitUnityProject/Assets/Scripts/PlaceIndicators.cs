@@ -55,7 +55,7 @@ public class PlaceIndicators : Singleton<PlaceIndicators>
             switch (GameStateManager.I.state)
             {
                 case "LightsOff":
-                    MessageManager.I.Notify("You cannot take the indicators when the light is off. Press \"R\" to reload from the last checkpoint.");
+                    MessageManager.I.Notify("You cannot take the indicators when the lights are off. Press R to reload from the last checkpoint.", 2);
                     break;
                 case "LightsOn":
                     MessageManager.I.Notify("You took the indicators back.");

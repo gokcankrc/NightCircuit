@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Serialization;
-using UnityEngine.SocialPlatforms;
 
 public class GameStateManager : Singleton<GameStateManager>
 {
@@ -18,20 +12,16 @@ public class GameStateManager : Singleton<GameStateManager>
     [SerializeField] public KeyCode musicUpKey;
     [SerializeField] public KeyCode musicDownKey;
 
-
     public delegate void AudioLevelChange(float audioLevelNormalized);
     public static event AudioLevelChange ONAudioLevelChange ;
-
 
     public void VolumeChange(int change)
     {
         audioLevel = Mathf.Clamp(audioLevel + change, 0, 100);
         ONAudioLevelChange?.Invoke(AudioLevelNormalized);
-        Debug.Log(AudioLevelNormalized);
+        MessageManager.I.Notify("Volume: " + audioLevel);
     }
 
-    
-    
     void Awake()
     {
         state = "LightsOn";
@@ -40,13 +30,13 @@ public class GameStateManager : Singleton<GameStateManager>
     private void Start()
     {
         ONAudioLevelChange?.Invoke(AudioLevelNormalized);
-
     }
     
     private void Update()
     {
         if (Input.GetKeyDown(musicDownKey)) VolumeChange(-audioLevelIncement);
         if (Input.GetKeyDown(musicUpKey)) VolumeChange(audioLevelIncement);
+        if (Input.GetKeyDown(KeyCode.R)) state = "LightsOn";
     }
     
     

@@ -14,13 +14,13 @@ public class GameDebugMode : Singleton<GameDebugMode>
 
     private void Update()
     {
-        DebugMode = Input.GetKeyDown(KeyCode.F9)?  !DebugMode : DebugMode;
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            DebugMode = !DebugMode;
+            MessageManager.I.Notify(DebugMode ? "Dev mode on" : "Dev mode off");
+        }
 
         DebugStuff();
-        
-        
-        
-
     }
 
     private void DebugStuff()

@@ -33,23 +33,21 @@ public class MessageManager : Singleton<MessageManager>
         UpdateAmountsDisplay();
     }
 
-    public void Notify(string messageString)
-    {
+    public void Notify(string messageString, int lines=1)
+    {        
+        for (int j = 0; j < notificationMessagesTransform.childCount; j++)
+        {
+            notificationMessagesTransform.GetChild(j).GetComponent<RectTransform>().anchoredPosition += messageOffset * lines;
+        }
+        
         var currentMessage = Instantiate(messagePrefab, notificationMessagesTransform);
         currentMessage.GetComponent<TextMeshProUGUI>().text = messageString;
-        Debug.Log("textmesh attempts");
-        var lineCount = currentMessage.GetComponent<TextMeshProUGUI>().GetTextInfo(messageString).lineCount;
         
         // displace for them to not stack
         RectTransform messsageRect = currentMessage.GetComponent<RectTransform>();
         
         messsageRect.anchoredPosition =  new Vector2(messageDisplaceVector.x, rectTransform.offsetMax.y + messageDisplaceVector.y);
         messsageRect.sizeDelta = messageBox;
-        
-        for (int j = 0; j < notificationMessagesTransform.childCount; j++)
-        {
-            notificationMessagesTransform.GetChild(j).GetComponent<RectTransform>().anchoredPosition += messageOffset * lineCount /2;
-        }
     }
 
     public void UpdateAmountsDisplay()

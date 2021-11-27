@@ -130,8 +130,12 @@ public class BatteryPortScript : MonoBehaviour
                     GameStateManager.I.level = 2;
                     MessageManager.I.Notify("Checkpoint has reached");
                 }
+
+                if (GameStateManager.I.level == 2)
+                {
+                    GameStateManager.I.state = IsFull ? "LightsOn" : "LightsOff";
+                }
                 
-                GameStateManager.I.state = IsFull ? "LightsOn" : "LightsOff";
                 break;
 
             case -4:
