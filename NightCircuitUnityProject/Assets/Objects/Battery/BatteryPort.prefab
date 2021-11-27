@@ -156,6 +156,7 @@ MonoBehaviour:
   connectedDoor: {fileID: 0}
   connectedDoorPort: {fileID: 0}
   connectedDoorPort2: {fileID: 0}
+  lvl1BatterySwitch: {fileID: 0}
   batterySoundEffects: {fileID: 836018096648543196}
 --- !u!114 &836018096648543196
 MonoBehaviour:
@@ -171,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onSound: {fileID: 5239845289316350277, guid: e0103fb9597e2e94bbc03e4aa8741311, type: 3}
   offSound: {fileID: 7962273747916252263, guid: 465bc3065ad90ae4bb4844d8b41c2778, type: 3}
+  soundsOrNot: 1
 --- !u!1 &5468721270075438612
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,8 +266,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.88676226, y: 0.90580356, z: 0.93407476}
+  m_Center: {x: 0.05661888, y: -0.021923691, z: 0.0039217253}
 --- !u!1 &7639020859337598203
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,9 +495,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3727316819665896242, guid: 57d9287b948302140b63fb144acf97a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 57d9287b948302140b63fb144acf97a7, type: 3}
       propertyPath: m_Name
       value: battery_port
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 57d9287b948302140b63fb144acf97a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785924183180671874, guid: 57d9287b948302140b63fb144acf97a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d9287b948302140b63fb144acf97a7, type: 3}
@@ -565,9 +579,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1259053315840926952, guid: 43f4fe43fb7749441a7d383330ee956b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2679715071758351087, guid: 43f4fe43fb7749441a7d383330ee956b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4241850533626909151, guid: 43f4fe43fb7749441a7d383330ee956b, type: 3}
       propertyPath: m_Name
       value: BatteryInsidePort
+      objectReference: {fileID: 0}
+    - target: {fileID: 4241850533626909151, guid: 43f4fe43fb7749441a7d383330ee956b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565359103406595766, guid: 43f4fe43fb7749441a7d383330ee956b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752393528306807413, guid: 43f4fe43fb7749441a7d383330ee956b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43f4fe43fb7749441a7d383330ee956b, type: 3}

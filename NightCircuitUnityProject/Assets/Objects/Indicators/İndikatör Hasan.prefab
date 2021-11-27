@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1736797485}
   - component: {fileID: 1736797484}
   m_Layer: 8
-  m_Name: Sphere
+  m_Name: Targeting Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3978923563917674070}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1736797486
 MeshFilter:
@@ -287,6 +287,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ad6ed50d7ba082e47b21ba3ed8d376c6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad6ed50d7ba082e47b21ba3ed8d376c6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad6ed50d7ba082e47b21ba3ed8d376c6, type: 3}
